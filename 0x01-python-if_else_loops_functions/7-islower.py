@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-wisteen = __import__('7-islower')
-
-if wisteen.islower('A'):
-    print("true")
-else:
-    print("false")
+def islower(c):
+    if ord(c) >= ord('a') and ors(c) <= ord('z'):
+        return True
+    else:
+        return False
