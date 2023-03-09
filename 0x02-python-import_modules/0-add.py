@@ -4,4 +4,4 @@ if __name__ == "__main__":
     from add_o import add
     a = 1
     b = 2
-    print ("{} + {} = {}".foramt(a, b, add(a, b)
+    print("{} + {} = {}".foramt(a, b, add(a, b)))
