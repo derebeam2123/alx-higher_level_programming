@@ -24,7 +24,6 @@ int palindrome(listint_t **l, listint_t *r)
 	}
 	return (1);
 }
-
 /**
  * is_palindrome - checks if a singly linked list is a palindrome.
  * @head: head of linked list
