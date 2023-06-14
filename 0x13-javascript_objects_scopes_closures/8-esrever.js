@@ -1,3 +1,7 @@
-i#!/usr/bin/node
-let count = 0;
-exports.logMe = function (item) { console.log(`${count++}: ${item}`); 	};
+#!/usr/bin/node
+exports.esrever = function (list) {
+	  return list.reduceRight(function (array, current) {
+		      array.push(current);
+		      return array;
+		    }, []);
+};
