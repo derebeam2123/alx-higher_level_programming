@@ -28,3 +28,13 @@ class Square:
     def area(self):
         """Public instance method that returns the current square area"""
         return self.__size * self.__size
+
+    def my_print(self):
+        """Public instance method that prints the square with the char #"""
+        if self.__size > 0:
+            for i in range(0, self.__size):
+                for j in range(0, self.__size):
+                    print("#", end="")
+                print("")
+        else:
+            print("")
