@@ -1,57 +1,72 @@
 #!/usr/bin/python3
-""" Module providing a 'Node' class for a singly-linked list
-"""
+"""Singley Linked List"""""
 
 
-class Node():
-    """ Definition of a singly-linked list node
-    """
+class Node:
+    """Node class"""
+
     def __init__(self, data, next_node=None):
-        """ Instantiate a node
-        """
-        self.data, self.next_node = data, next_node
+        """Defines a node of LL"""
+        self.data = data
+        self.next_node = next_node
 
     @property
     def data(self):
-        """ Get the data stored in a node
-        """
+        """data Getter"""
         return self.__data
 
     @data.setter
-    def data(self, data):
-        """ Set the data stored in a node
-        """
-        if not isinstance(data, int):
-            raise TypeError("data must be an integer")
-        self.__data = data
+    def data(self, value):
+        """data Setter"""
+        if not isinstance(value, int):
+            raise TypeError('data must be an integer')
+        self.__data = value
 
     @property
     def next_node(self):
-        """ Get the next node
-        """
+        """next_node Getter"""
         return self.__next_node
 
     @next_node.setter
-    def next_node(self, next_node):
-        """ Set the next node
-        """
-        if next_node is not None and not isinstance(next_node, Node):
-            raise TypeError("next_node must be a Node object")
-        self.__next_node = next_node
+    def next_node(self, value):
+        """next_node Setter"""
+        if value is not None and type(value) != Node:
+            raise TypeError('next_node must be a Node object')
+        self.__next_node = value
 
 
-class SinglyLinkedList():
-    """ Definition of a singly-linked list
-    """
+class SinglyLinkedList:
+    """Singley Linked List class"""
+
     def __init__(self):
-        """ Instantiate a singly-linked list
-        """
-        self.__head = None
+        """Initialize SSL class"""
+        self.head = None
 
     def __str__(self):
-        """ Generate a visual representation of a list
-        """
+        """To string method"""
+        result = ""
+        node = self.head
+        while node:
+            result += str(node.data) + '\n'
+            node = node.next_node
+        return result[:-1]
 
     def sorted_insert(self, value):
-        """ Inset a Node into a list sorted in ascending order
-        """
+        """Inserts a new node at sorted position"""
+        new_node = Node(value)
+
+        if not self.head:
+            self.head = new_node
+            return
+
+        if value < self.head.data:
+            new_node.next_node = self.head
+            self.head = new_node
+            return
+
+        node = self.head
+        while node.next_node and node.next_node.data < value:
+            node = node.next_node
+        if node.next_node:
+            new_node.next_node = node.next_node
+        node.next_node = new_node
